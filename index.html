@@ -1,160 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sagar Desai - Resume</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fff;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      width: 1000px;
-      margin: 0 auto;
-      padding: 30px;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 20px;
-    }
-    .header img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-right: 20px;
-    }
-    .header h1 {
-      margin: 0;
-    }
-    .section {
-      margin-top: 30px;
-    }
-    .section h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      border-bottom: 2px solid #000;
-      padding-bottom: 5px;
-    }
-    .left, .right {
-      display: inline-block;
-      vertical-align: top;
-    }
-    .left {
-      width: 65%;
-    }
-    .right {
-      width: 30%;
-      margin-left: 5%;
-    }
-    ul {
-      margin-top: 0;
-    }
-    .bar {
-      height: 10px;
-      background: #ddd;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .bar span {
-      display: block;
-      height: 100%;
-      background: #2196F3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Desai - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .navbar ul li {
+            margin: 0 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            color: #ffeb3b;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #1e3a8a;
+            margin-bottom: 15px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .profile-pic:hover {
+            transform: scale(1.1);
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        .header .title {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .header .contact-info {
+            font-size: 1rem;
+            color: #777;
+        }
+        .header .contact-info p {
+            margin: 2px 0;
+        }
+        .section {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+        }
+        .section h2::before {
+            content: "◼";
+            color: #1e3a8a;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+        .section h3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .section p {
+            margin-bottom: 10px;
+        }
+        .section ul {
+            list-style: none;
+            margin-left: 20px;
+        }
+        .section ul li {
+            position: relative;
+            margin-bottom: 8px;
+            transition: transform 0.3s ease;
+        }
+        .section ul li:hover {
+            transform: translateX(10px);
+        }
+        .section ul li::before {
+            content: "•";
+            color: #3b82f6;
+            position: absolute;
+            left: -15px;
+            font-size: 14px;
+        }
+        .side-by-side {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .side-by-side > div {
+            flex: 1;
+        }
+        .side-by-side h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: #1e3a8a;
+        }
+        .skill-list, .hobby-list, .language-list {
+            margin-bottom: 3px;
+        }
+        .skill-list p, .hobby-list p, .language-list p {
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1e3a8a;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+        .back-to-top.visible {
+            display: block;
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            .side-by-side {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .navbar ul li {
+                margin: 0 10px;
+            }
+            .navbar ul li a {
+                font-size: 14px;
+            }
+            .profile-pic {
+                width: 80px;
+                height: 80px;
+            }
+            .header .contact-info, .header .title {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <img src="profile.jpeg" alt="Sagar Desai">
-      <div>
-        <h1>Sagar Desai</h1>
-        <p>Sales and Marketing Coordinator</p>
-      </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#employment">Employment</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#details">Details & Skills</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <img src="profile.jpeg" alt="Sagar Desai Profile Picture" class="profile-pic">
+            <h1>Sagar Desai</h1>
+            <p class="title">Sales & Marketing Coordinator</p>
+            <div class="contact-info">
+                <p>703, Dev Apartment, Laxmi nagar Society, Ravapar Road, Morbi, 363641, India</p>
+                <p>8460031900</p>
+                <p>sagardesai393@gmail.com</p>
+            </div>
+        </div>
+
+        <div id="profile" class="section">
+            <h2>PROFILE</h2>
+            <p>Dynamic Senior Sales Coordinator with 7 years of experience in driving revenue growth and enhancing customer satisfaction through strategic sales initiatives. Expertise in fostering strong client relationships and leveraging market analysis to uncover new business opportunities. Proficient in coordinating team efforts to optimize performance and deliver impactful results. Committed to using analytical skills and a proactive approach to support sales and marketing objectives effectively.</p>
+        </div>
+
+        <div id="employment" class="section">
+            <h2>EMPLOYMENT HISTORY</h2>
+            <h3>Senior Sales Coordinator at Comet Granito Pvt. Ltd, Morbi</h3>
+            <p><em>April 2018 – Present</em></p>
+            <ul>
+                <li>Coordinated sales activities to optimize team performance and drive revenue growth.</li>
+                <li>Developed and maintained relationships with key clients to enhance customer satisfaction.</li>
+                <li>Analyzed market trends to identify new business opportunities and competitive strategies.</li>
+                <li>Monitored and reported on sales metrics to guide strategic decision-making.</li>
+                <li>Foster Relation with transporter to provide quick material delivery to clients.</li>
+                <li>Helped in developing customized designs for big project clients like Hirananadani, Sunteck Realty Ltd., etc.</li>
+                <li>Outsourcing the material from other plants for providing the fast service to clients.</li>
+            </ul>
+            <h3>Intern at Inside Interior and Architecture, Morbi</h3>
+            <p><em>May 2017 – November 2017</em></p>
+            <ul>
+                <li>Assisted in Selecting material for the clients to enhance the living space.</li>
+                <li>Created 3D previews for the interior designs as per clients requirements.</li>
+            </ul>
+        </div>
+
+        <div id="education" class="section">
+            <h2>EDUCATION</h2>
+            <p><strong>BE Automobile, Marwadi Education Foundation’s Group of Institution, Rajkot</strong><br>2013 – 2017<br>Graduated with 8.2 CGPA</p>
+            <p><strong>HSC, Jawahar Navodaya Vidhyalaya, Rajkot</strong><br>2012 – 2013</p>
+        </div>
+
+        <div id="details" class="section">
+            <div class="side-by-side">
+                <div>
+                    <h3>SKILLS</h3>
+                    <div class="skill-list">
+                        <p>Customer Service Skills</p>
+                        <p>Marketing</p>
+                        <p>Fast Learner</p>
+                        <p>Planning and Problem-solving Abilities</p>
+                        <p>Teamwork Skills</p>
+                        <p>Microsoft Office</p>
+                        <p>Account Management</p>
+                        <p>New Product Development</p>
+                        <p>Data Analysis and MIS Reporting</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>LANGUAGES</h3>
+                    <div class="language-list">
+                        <p>English</p>
+                        <p>Hindi</p>
+                        <p>Gujarati</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>HOBBIES</h3>
+                    <div class="hobby-list">
+                        <p>Reading</p>
+                        <p>Long Drives</p>
+                        <p>Travelling</p>
+                        <p>Calligraphy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="left">
-      <div class="section">
-        <h2>Profile</h2>
-        <p>Dynamic Senior Sales Coordinator with 7 years of experience in driving revenue growth and enhancing customer satisfaction through strategic sales initiatives. Expertise in fostering strong client relationships and leveraging market analysis to uncover new business opportunities. Proficient in coordinating team efforts to optimise performance and deliver impactful results. Committed to using analytical skills and a proactive approach to support sales and marketing objectives effectively.</p>
-      </div>
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
 
-      <div class="section">
-        <h2>Employment History</h2>
-        <h3>Senior Sales Coordinator at Comet Granito Pvt Ltd, Morbi</h3>
-        <p><em>April 2018 – Present</em></p>
-        <ul>
-          <li>Coordinated sales activities to optimize team performance and drive revenue growth.</li>
-          <li>Developed and maintained relationships with key clients.</li>
-          <li>Analyzed market trends to identify opportunities.</li>
-          <li>Reported on sales metrics to guide strategic decisions.</li>
-          <li>Managed material delivery and outsourced as needed.</li>
-          <li>Developed custom designs for large projects.</li>
-        </ul>
+    <script>
+        // Simulate Node.js-like data fetching (static data here)
+        const resumeData = {
+            name: "Sagar Desai",
+            title: "Sales & Marketing Coordinator",
+            profile: "Dynamic Senior Sales Coordinator with 7 years of experience..."
+        };
 
-        <h3>Intern at Inside Interior and Architecture, Morbi</h3>
-        <p><em>May 2017 – November 2017</em></p>
-        <ul>
-          <li>Assisted in selecting material for client interiors.</li>
-          <li>Created 3D design previews as per requirements.</li>
-        </ul>
-      </div>
+        // Intersection Observer for fade-in animation
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-      <div class="section">
-        <h2>Education</h2>
-        <p><strong>BE Automobile, Marwadi Education Foundation, Rajkot</strong><br>2013 – 2017<br>Graduated with 8.2 CGPA</p>
-        <p><strong>HSC, Jawahar Navodaya Vidhyalaya, Rajkot</strong><br>2012 – 2013</p>
-      </div>
-    </div>
+        sections.forEach(section => observer.observe(section));
 
-    <div class="right">
-      <div class="section">
-        <h2>Details</h2>
-        <p>703, Dev appartment, Laxmi nagar society, Ravapar Road<br>Morbi, 363641<br>India<br>8460831900<br><a href="mailto:sagardesai393@gmail.com">sagardesai393@gmail.com</a></p>
-      </div>
+        // Back to Top button visibility
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
 
-      <div class="section">
-        <h2>Skills</h2>
-        <ul>
-          <li>Customer Service Skills</li>
-          <li>Marketing</li>
-          <li>Fast Learner</li>
-          <li>Initiative and Problem-solving Abilities</li>
-          <li>Teamwork Skills</li>
-          <li>Microsoft Office</li>
-          <li>Account Management</li>
-          <li>New Product Development</li>
-          <li>Data Analysis and MIS Reporting</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Languages</h2>
-        <p>English</p>
-        <div class="bar"><span style="width: 90%;"></span></div>
-        <p>Hindi</p>
-        <div class="bar"><span style="width: 80%;"></span></div>
-        <p>Gujarati</p>
-        <div class="bar"><span style="width: 90%;"></span></div>
-      </div>
-
-      <div class="section">
-        <h2>Hobbies</h2>
-        <ul>
-          <li>Reading</li>
-          <li>Long Drives</li>
-          <li>Travelling</li>
-          <li>Calligraphy</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+        // Smooth scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
